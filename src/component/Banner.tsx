@@ -45,7 +45,7 @@ export default function Banner() {
 
             <Link
               href="/rooms"
-              className="group flex items-center gap-2 rounded-xl bg-orange-600 px-4 py-3 font-semibold text-white transition hover:scale-105 hover:bg-orange-500"
+              className="group flex items-center gap-2 rounded-xl bg-linear-to-b from-orange-600 via-orange-600 to-orange-400 px-4 py-3 font-semibold text-white transition hover:scale-105 hover:bg-orange-500"
             >
               Browse Hotels
 

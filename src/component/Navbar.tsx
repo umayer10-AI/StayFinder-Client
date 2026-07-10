@@ -45,7 +45,7 @@ export default function Navbar() {
     { name: "Rooms", href: "/rooms", icon: Building2 },
     { name: "About", href: "/about", icon: Hotel },
     { name: "Wishlist", href: "/wishlist", icon: Heart },
-    { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
+    { name: "Dashboard", href: `/dashboard/${user?.role}`, icon: LayoutDashboard },
   ];
 
   const routes = user ? userRoutes : guestRoutes;
@@ -78,7 +78,7 @@ export default function Navbar() {
                 href={route.href}
                 className={`flex items-center gap-2 text-sm rounded-lg px-3 py-1.5 transition ${
                   pathname === route.href
-                    ? " bg-linear-to-r from-orange-600 to-orange-400 text-white"
+                    ? " bg-linear-to-r from-orange-600 via-orange-600 to-orange-400 text-white"
                     : "text-slate-300 hover:bg-slate-800 hover:text-orange-400"
                 }`}
               >

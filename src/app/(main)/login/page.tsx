@@ -58,7 +58,7 @@ export default function LoginPage() {
           </div>
 
           <h1 className="mt-2 text-2xl font-bold text-white">
-            Create <span className="text-orange-400">Account</span>
+            Login <span className="text-orange-400">Account</span>
           </h1>
 
         </div>
@@ -163,12 +163,12 @@ export default function LoginPage() {
 
         {/* Footer */}
         <p className="mt-3 text-center text-sm text-slate-400">
-          Already have an account?{" "}
+          Create a new account?{" "}
           <Link
-            href="/login"
+            href="/register"
             className="font-semibold text-orange-400 transition hover:text-orange-300"
           >
-            Login
+            Register
           </Link>
         </p>
       </div>
