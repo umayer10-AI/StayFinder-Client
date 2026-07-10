@@ -60,7 +60,7 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="rounded-lg bg-linear-to-r from-orange-600 to-orange-400 p-2">
+          <div className="rounded-lg bg-orange-600 p-2">
             <Hotel className="h-5 w-5 text-white" />
           </div>
           <h2 className="text-xl font-bold text-white">

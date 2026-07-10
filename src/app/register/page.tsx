@@ -14,6 +14,7 @@ type FormData = {
   email: string;
   image: string;
   password: string;
+  role: "customer" | "admin";
 };
 
 export default function RegisterPage() {
@@ -23,7 +24,11 @@ export default function RegisterPage() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<FormData>({
+    defaultValues: {
+        role: "customer",
+    },
+    });
 
   const onSubmit = async (v: FormData) => {
     console.log(v);
@@ -33,6 +38,7 @@ export default function RegisterPage() {
         email: v.email,
         password: v.password,
         image: v.image,
+        role: v.role,
         callbackURL: "/",
     });
 
@@ -71,7 +77,7 @@ export default function RegisterPage() {
           </p> */}
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
 
           {/* Name */}
           <div>
@@ -190,7 +196,29 @@ export default function RegisterPage() {
                 {errors.password.message}
               </p>
             )}
-          </div>          {/* Register Button */}
+          </div>     
+
+            {/* {Role} */}
+          <div>
+  <label className="mb-2 block text-sm text-slate-300">
+    Account Type
+  </label>
+
+  <select
+    {...register("role")}
+    className="w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-2 text-white outline-none focus:border-orange-500"
+  >
+    <option value="customer" className="bg-slate-800">
+      Customer
+    </option>
+
+    <option value="admin" className="bg-slate-800">
+      Admin
+    </option>
+  </select>
+</div>  
+
+          {/* Register Button */}
           <button
             type="submit"
             className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-orange-600 to-orange-400 py-2 font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:from-orange-500 hover:to-orange-300"
