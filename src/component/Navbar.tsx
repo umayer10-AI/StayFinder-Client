@@ -53,7 +53,6 @@ export default function Navbar() {
 
   const a = async() => {
     await authClient.signOut()
-    alert("LogOut")
   }
 
   return (
@@ -100,10 +99,10 @@ export default function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setProfileOpen(!profileOpen)}
-                  className="flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-2 text-white hover:bg-slate-800"
+                  className="flex items-center gap-2 text-md rounded-lg bg-slate-900 px-3 py-2 text-white hover:bg-slate-800"
                 >
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 font-semibold">U</div>
-                  <span>Umayer</span>
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 font-semibold">{user?.name.charAt(0) || 'U'}</div>
+                  <span>{user?.name.split(' ')[0]}</span>
                   <ChevronDown className="h-4 w-4" />
                 </button>
                 {profileOpen && (
