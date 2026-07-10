@@ -1,5 +1,6 @@
 import Banner from '@/component/Banner';
 import Destinations from '@/component/Destination';
+import Services from '@/component/Services';
 import React from 'react';
 
 const page = () => {
@@ -7,6 +8,7 @@ const page = () => {
     <div>
       <Banner></Banner>
       <Destinations></Destinations>
+      <Services></Services>
     </div>
   );
 };
