@@ -1,9 +1,12 @@
+import Banner from '@/component/Banner';
+import Destinations from '@/component/Destination';
 import React from 'react';
 
 const page = () => {
   return (
     <div>
-      Hello Umayer Boss
+      <Banner></Banner>
+      <Destinations></Destinations>
     </div>
   );
 };
