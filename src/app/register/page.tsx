@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { FaHotel, FaUser, FaGoogle, FaArrowRight } from "react-icons/fa";
 import { MdEmail, MdLock, MdImage } from "react-icons/md";
 import { IoEye, IoEyeOff } from "react-icons/io5";
+import { authClient } from "@/lib/auth-client";
+import { redirect } from "next/navigation";
 
 type FormData = {
   name: string;
@@ -23,8 +25,25 @@ export default function RegisterPage() {
     formState: { errors },
   } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
+  const onSubmit = async (v: FormData) => {
+    console.log(v);
+
+    const { data, error } = await authClient.signUp.email({
+        name: v.name,
+        email: v.email,
+        password: v.password,
+        image: v.image,
+        callbackURL: "/",
+    });
+
+    if(data){
+        alert("Register Succesfully")
+        redirect('/')
+    }
+    if(error){
+        alert(error.message)
+    }
+
   };
 
   return (

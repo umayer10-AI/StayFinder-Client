@@ -18,13 +18,17 @@ import {
   LogOut,
   Settings,
 } from "lucide-react";
+import { authClient } from "@/lib/auth-client";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
 
-  const isLoggedIn = false;
+  const { data: session } = authClient.useSession()
+  const user = session?.user
+  console.log(user)
+
 
   useEffect(() => {
     setMobileOpen(false);
@@ -45,7 +49,12 @@ export default function Navbar() {
     { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
   ];
 
-  const routes = isLoggedIn ? userRoutes : guestRoutes;
+  const routes = user ? userRoutes : guestRoutes;
+
+  const a = async() => {
+    await authClient.signOut()
+    alert("LogOut")
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-950/90 backdrop-blur-lg">
@@ -83,7 +92,7 @@ export default function Navbar() {
 
         {/* Right Side */}
         <div className="hidden items-center gap-4 lg:flex">
-          {isLoggedIn ? (
+          {user ? (
             <>
               <button className="rounded-lg p-2 text-slate-300 transition hover:bg-slate-800 hover:text-orange-400">
                 <Bell className="h-5 w-5" />
@@ -106,7 +115,7 @@ export default function Navbar() {
                       <Settings className="h-4 w-4" /> Settings
                     </Link>
                     <hr className="my-2 border-slate-700" />
-                    <button className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-red-400 hover:bg-red-500/10">
+                    <button onClick={a} className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-red-400 hover:bg-red-500/10">
                       <LogOut className="h-4 w-4" /> Logout
                     </button>
                   </div>
