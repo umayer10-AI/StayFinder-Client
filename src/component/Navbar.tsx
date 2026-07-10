@@ -2,14 +2,13 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 import {
   Hotel,
   Menu,
   X,
   Home,
   Building2,
-  CalendarDays,
   Heart,
   LayoutDashboard,
   Bell,
@@ -44,7 +43,7 @@ export default function Navbar() {
   const userRoutes = [
     { name: "Home", href: "/", icon: Home },
     { name: "Rooms", href: "/rooms", icon: Building2 },
-    { name: "Bookings", href: "/bookings", icon: CalendarDays },
+    { name: "About", href: "/about", icon: Hotel },
     { name: "Wishlist", href: "/wishlist", icon: Heart },
     { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
   ];
@@ -53,6 +52,7 @@ export default function Navbar() {
 
   const a = async() => {
     await authClient.signOut()
+    redirect('/')
   }
 
   return (
