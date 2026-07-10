@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { MapPin } from "lucide-react";
+import Image from "next/image";
 
 const destinations = [
   { name: "Bali, Indonesia", properties: "2,450+ Stays", image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600" },
   { name: "Paris, France", properties: "1,820+ Stays", image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600" },
   { name: "Dubai, UAE", properties: "3,100+ Stays", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600" },
-  { name: "London, UK", properties: "1,200+ Stays", image: "https://images.unsplash.com/photo-1513635269975-59663e0a1ad2?w=600" },
+  { name: "London, UK", properties: "1,200+ Stays", image: "https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=600" },
 ];
 
 export default function Destinations() {
@@ -30,11 +31,17 @@ export default function Destinations() {
               key={index} 
               className="group relative rounded-3xl overflow-hidden cursor-pointer border border-slate-800 hover:border-orange-500/50 transition-all duration-500"
             >
-              <img 
-                src={dest.image} 
-                alt={dest.name} 
-                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" 
-              />
+              <div className="relative h-80 w-full overflow-hidden">
+  <Image
+    src={dest.image}
+    alt={dest.name}
+    fill
+    sizes="(max-width: 640px) 100vw,
+           (max-width: 1024px) 50vw,
+           25vw"
+    className="object-cover transition-transform duration-500 group-hover:scale-105"
+  />
+</div>
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent p-6 flex flex-col justify-end">
                 <h3 className="text-white text-xl font-bold flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-orange-500" />
