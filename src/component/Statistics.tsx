@@ -26,7 +26,7 @@ export default function Statistics() {
             the best prices.
           </p>
 
-          <button className="mt-8 rounded-xl bg-orange-500 px-6 py-3 font-semibold text-white transition hover:bg-orange-600">
+          <button className="mt-8 rounded-xl bg-orange-600 px-6 py-3 font-semibold text-white transition hover:bg-orange-600">
             Explore Hotels
           </button>
         </div>
@@ -39,13 +39,13 @@ export default function Statistics() {
             <p className="mt-2 text-slate-400">Hotels Listed</p>
           </div>
 
-          <div className="rounded-3xl bg-orange-500 p-8">
+          <div className="rounded-3xl bg-linear-to-r from-orange-600 to-orange-400 p-8">
             <FaUsers className="mb-5 text-4xl text-white" />
             <h3 className="text-5xl font-bold text-white">250K+</h3>
             <p className="mt-2 text-orange-100">Happy Guests</p>
           </div>
 
-          <div className="rounded-3xl bg-orange-500 p-8">
+          <div className="rounded-3xl bg-linear-to-r from-orange-600 to-orange-400 p-8">
             <FaGlobeAsia className="mb-5 text-4xl text-white" />
             <h3 className="text-5xl font-bold text-white">120+</h3>
             <p className="mt-2 text-orange-100">Destinations</p>

@@ -74,7 +74,7 @@ export default function Services() {
               key={index}
               className="group rounded-2xl border border-slate-800 bg-slate-900 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-orange-500 hover:shadow-xl hover:shadow-orange-500/10"
             >
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-500/10 transition group-hover:bg-orange-500">
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-500/10 transition">
                 <div className="group-hover:text-white">
                   {service.icon}
                 </div>

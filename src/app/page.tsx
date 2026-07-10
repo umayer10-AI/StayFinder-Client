@@ -1,10 +1,12 @@
 import Banner from '@/component/Banner';
+import Blogs from '@/component/Blogs';
 import Categories from '@/component/Categories';
 import Destinations from '@/component/Destination';
 import Highlights from '@/component/Highlights';
 import Services from '@/component/Services';
 import Statistics from '@/component/Statistics';
 import Stats from '@/component/Statistics';
+import Testimonials from '@/component/Testimonials';
 import React from 'react';
 
 const page = () => {
@@ -12,11 +14,12 @@ const page = () => {
     <div>
       <Banner></Banner>
       <Destinations></Destinations>
-      <Services></Services>
+      <Blogs></Blogs>
       <Categories></Categories>
+      <Services></Services>
       <Statistics></Statistics>
       <Highlights></Highlights>
-      {/* <Stats></Stats> */}
+      <Testimonials></Testimonials>
     </div>
   );
 };
