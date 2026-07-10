@@ -35,7 +35,7 @@ export default function AboutPage() {
 
       {/* Our Mission */}
       <section className="py-20 px-6 bg-slate-900">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-[80%] 2xl:max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl font-bold text-white mb-6">Our Mission</h2>
             <p className="text-slate-400 mb-4 leading-relaxed">
