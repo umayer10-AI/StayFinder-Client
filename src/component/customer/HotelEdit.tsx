@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { Pencil, X } from "lucide-react";
 import { useForm } from "react-hook-form";
+import { hotelEdit } from "@/lib/api/action";
+import { redirect } from "next/navigation";
 
 const hotelTypes = [
   "Hotel",
@@ -15,6 +17,7 @@ const hotelTypes = [
 
 const HotelEdit = ({ hotel }: any) => {
   const [open, setOpen] = useState(false);
+//   console.log(hotel)
 
   const { register, handleSubmit, reset } = useForm();
 
@@ -31,13 +34,19 @@ const HotelEdit = ({ hotel }: any) => {
     }
   }, [hotel, reset]);
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     const updateData = {
       id: hotel._id,
       ...data,
     };
 
     console.log("Updated Data:", updateData);
+    const finalData = await hotelEdit(updateData, hotel._id)
+
+    if(finalData.modifiedCount > 0){
+        alert("Update Data")
+        redirect('/dashboard/customer/bookings')
+    }
 
     setOpen(false);
   };
