@@ -63,11 +63,10 @@ export default function Profile() {
   const handleSubmit = async () => {
     const profileData = {
       name,
-
       image: img,
     };
 
-    console.log("Profile Data:", profileData);
+    // console.log("Profile Data:", profileData);
 
     const { data, error } = await authClient.updateUser({
       name: name,
