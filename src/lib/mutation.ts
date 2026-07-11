@@ -17,3 +17,9 @@ export const postPatch = async (
   const data = await res.json();
   return data;
 };
+
+
+export const getData = async(path: string) => {
+    const res = await fetch(`${BaseUrl}${path}`)
+    return res.json()
+}
