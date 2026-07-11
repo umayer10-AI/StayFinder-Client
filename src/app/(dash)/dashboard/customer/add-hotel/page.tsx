@@ -55,6 +55,7 @@ const Page = () => {
         const finalData = { 
             ...data, 
             userId: user?.id,
+            userEmail: user?.email,
             image: imageUrl 
         };
       console.log("Form Submitted Successfully:", finalData);

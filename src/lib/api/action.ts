@@ -1,5 +1,5 @@
 import { postPatch } from "../mutation"
 
-const addHotel = async(v) => {
+export const addHotel = async(v: unknown) => {
     return postPatch('/api/hotels',v,'POST')
 }
