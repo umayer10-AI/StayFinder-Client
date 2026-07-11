@@ -1,5 +1,5 @@
 import { getData } from "../mutation"
 
-export const userHotelsData = async() => {
-    return getData('/api/hotels')
+export const getuserHotelsData = async(userId: string) => {
+    return getData(`/api/hotels/${userId}`)
 }
