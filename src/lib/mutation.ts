@@ -19,7 +19,15 @@ export const postPatch = async (
 };
 
 
-export const getData = async(path: string) => {
+export const getData = async (path: string) => {
     const res = await fetch(`${BaseUrl}${path}`)
+    return res.json()
+}
+
+
+export const deleteData = async (path: string, methodData: string = "DELETE") => {
+    const res = await fetch(`${BaseUrl}${path}`,{
+        method: methodData
+    })
     return res.json()
 }
