@@ -7,3 +7,7 @@ export const getuserHotelsData = async(userId: string) => {
 export const allHotelsData = async() => {
     return getData(`/api/hotels`)
 }
+
+export const singleHotelData = async(id: string) => {
+    return getData(`/api/hotels/single/${id}`)
+}
