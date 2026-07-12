@@ -13,7 +13,7 @@ export default function HotelDelete({hotel}) {
     const data = await hotelDeleteBtn(hotel._id)
     if(data.deletedCount > 0){
         alert('Hotel Deleted')
-        redirect('/dashboard/customer/bookings')
+        redirect('/dashboard/customer/my-hotel')
     }
     setOpen(false);
   };

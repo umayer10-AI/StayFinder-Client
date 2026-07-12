@@ -25,8 +25,8 @@ const customerLinks = [
     icon: LayoutDashboard,
   },
   {
-    title: "My Bookings",
-    href: "/dashboard/customer/bookings",
+    title: "My hotel",
+    href: "/dashboard/customer/my-hotel",
     icon: CalendarDays,
   },
   {
@@ -35,9 +35,9 @@ const customerLinks = [
     icon: PlusSquare,
   },
   {
-    title: "Wishlist",
-    href: "/dashboard/customer/wishlist",
-    icon: Heart,
+    title: "My Bookings",
+    href: "/dashboard/customer/bookings",
+    icon: CalendarDays,
   },
   {
     title: "Profile",

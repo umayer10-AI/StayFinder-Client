@@ -45,7 +45,7 @@ const HotelEdit = ({ hotel }: any) => {
 
     if(finalData.modifiedCount > 0){
         alert("Update Data")
-        redirect('/dashboard/customer/bookings')
+        redirect('/dashboard/customer/my-hotel')
     }
 
     setOpen(false);
