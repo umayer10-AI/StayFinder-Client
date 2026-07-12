@@ -64,7 +64,7 @@ const adminLinks = [
   },
   {
     title: "Manage Bookings",
-    href: "/admin/bookings",
+    href: "/dashboard/admin/bookings",
     icon: ClipboardList,
   },
   {

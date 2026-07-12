@@ -23,3 +23,7 @@ export const userBooking = async(id: string) => {
 export const adminTransictions = async() => {
     return getData(`/api/hotels/transiction/colection`)
 }
+
+export const adminBooking = async() => {
+    return getData(`/api/hotels/admin/booking`)
+}
