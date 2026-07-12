@@ -13,74 +13,76 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-const stats = [
-  {
-    title: "Total Users",
-    value: "1,248",
-    icon: Users,
-    color: "text-blue-400",
-    border: "border-blue-500/30",
-    bg: "bg-blue-500/10",
-  },
-  {
-    title: "Hotels",
-    value: "86",
-    icon: Building2,
-    color: "text-emerald-400",
-    border: "border-emerald-500/30",
-    bg: "bg-emerald-500/10",
-  },
-  {
-    title: "Bookings",
-    value: "542",
-    icon: CalendarCheck,
-    color: "text-violet-400",
-    border: "border-violet-500/30",
-    bg: "bg-violet-500/10",
-  },
-  {
-    title: "Transactions",
-    value: "517",
-    icon: CreditCard,
-    color: "text-cyan-400",
-    border: "border-cyan-500/30",
-    bg: "bg-cyan-500/10",
-  },
-  {
-    title: "Revenue",
-    value: "$12,450",
-    icon: DollarSign,
-    color: "text-orange-400",
-    border: "border-orange-500/30",
-    bg: "bg-orange-500/10",
-  },
-  {
-    title: "Pro Users",
-    value: "321",
-    icon: Crown,
-    color: "text-yellow-400",
-    border: "border-yellow-500/30",
-    bg: "bg-yellow-500/10",
-  },
-  {
-    title: "Blocked Users",
-    value: "9",
-    icon: ShieldBan,
-    color: "text-red-400",
-    border: "border-red-500/30",
-    bg: "bg-red-500/10",
-  },
-  {
-    title: "Growth",
-    value: "+18%",
-    icon: TrendingUp,
-    color: "text-pink-400",
-    border: "border-pink-500/30",
-    bg: "bg-pink-500/10",
-  },
-];
 
 export default function AdminDashboard() {
+    
+    const stats = [
+      {
+        title: "Total Users",
+        value: "1,248",
+        icon: Users,
+        color: "text-blue-400",
+        border: "border-blue-500/30",
+        bg: "bg-blue-500/10",
+      },
+      {
+        title: "Hotels",
+        value: "86",
+        icon: Building2,
+        color: "text-emerald-400",
+        border: "border-emerald-500/30",
+        bg: "bg-emerald-500/10",
+      },
+      {
+        title: "Bookings",
+        value: "542",
+        icon: CalendarCheck,
+        color: "text-violet-400",
+        border: "border-violet-500/30",
+        bg: "bg-violet-500/10",
+      },
+      {
+        title: "Transactions",
+        value: "517",
+        icon: CreditCard,
+        color: "text-cyan-400",
+        border: "border-cyan-500/30",
+        bg: "bg-cyan-500/10",
+      },
+      {
+        title: "Revenue",
+        value: "$12,450",
+        icon: DollarSign,
+        color: "text-orange-400",
+        border: "border-orange-500/30",
+        bg: "bg-orange-500/10",
+      },
+      {
+        title: "Pro Users",
+        value: "321",
+        icon: Crown,
+        color: "text-yellow-400",
+        border: "border-yellow-500/30",
+        bg: "bg-yellow-500/10",
+      },
+      {
+        title: "Blocked Users",
+        value: "9",
+        icon: ShieldBan,
+        color: "text-red-400",
+        border: "border-red-500/30",
+        bg: "bg-red-500/10",
+      },
+      {
+        title: "Growth",
+        value: "+18%",
+        icon: TrendingUp,
+        color: "text-pink-400",
+        border: "border-pink-500/30",
+        bg: "bg-pink-500/10",
+      },
+    ];
+
   return (
     <div className="min-h-screen bg-zinc-950 p-6">
 
