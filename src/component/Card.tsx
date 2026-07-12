@@ -72,7 +72,7 @@ export default function Card({ hotel }: { hotel: any }) {
           </div>
 
           <Link
-            href={`/hotel/${hotel._id}`}
+            href={`/browse/${hotel._id}`}
             className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-orange-600 via-orange-600 to-orange-400 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:scale-105"
           >
             View Details
