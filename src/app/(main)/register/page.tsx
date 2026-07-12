@@ -27,6 +27,7 @@ export default function RegisterPage() {
   } = useForm<FormData>({
     defaultValues: {
         role: "customer",
+        plan: "free",
     },
     });
 
@@ -39,6 +40,7 @@ export default function RegisterPage() {
         password: v.password,
         image: v.image,
         role: v.role,
+        plan: v.plan,
         callbackURL: "/",
     });
 
