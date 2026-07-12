@@ -16,6 +16,7 @@ import {
   ChevronDown,
   LogOut,
   Settings,
+  ChartLine,
 } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 
@@ -44,7 +45,7 @@ export default function Navbar() {
     { name: "Home", href: "/", icon: Home },
     { name: "Browse", href: "/browse", icon: Building2 },
     { name: "About", href: "/about", icon: Hotel },
-    { name: "Wishlist", href: "/wishlist", icon: Heart },
+    { name: "Chart", href: "/chart", icon: ChartLine },
     { name: "Dashboard", href: `/dashboard/${user?.role}`, icon: LayoutDashboard },
   ];
 
