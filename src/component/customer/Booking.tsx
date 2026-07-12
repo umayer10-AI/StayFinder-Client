@@ -38,9 +38,6 @@ const BookingPage = ({ hotel }) => {
 
           <HotelEdit hotel={hotel}></HotelEdit>
 
-          {/* <button className="rounded-lg cursor-pointer bg-red-600 p-2 text-white transition hover:bg-red-700">
-            <Trash2 size={18} />
-          </button> */}
           <HotelDelete hotel={hotel}></HotelDelete>
         </div>
       </td>

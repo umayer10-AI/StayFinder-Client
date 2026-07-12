@@ -15,7 +15,7 @@ const hotelTypes = [
   "Hostel",
 ];
 
-const HotelEdit = ({ hotel }: any) => {
+const AdminHotelEdit = ({ hotel }: any) => {
   const [open, setOpen] = useState(false);
 //   console.log(hotel)
 
@@ -40,12 +40,12 @@ const HotelEdit = ({ hotel }: any) => {
       ...data,
     };
 
-    console.log("Updated Data:", updateData);
+    // console.log("Updated Data:", updateData);
     const finalData = await hotelEdit(updateData, hotel._id)
 
     if(finalData.modifiedCount > 0){
         alert("Update Data")
-        redirect('/dashboard/customer/my-hotel')
+        redirect('/dashboard/admin/hotels')
     }
 
     setOpen(false);
@@ -181,4 +181,4 @@ const HotelEdit = ({ hotel }: any) => {
   );
 };
 
-export default HotelEdit;
+export default AdminHotelEdit;
