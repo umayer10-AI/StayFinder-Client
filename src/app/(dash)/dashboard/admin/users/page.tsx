@@ -5,7 +5,7 @@ import React from 'react';
 const page = async () => {
 
     const users = await manageUsers()
-    console.log(users)
+    // console.log(users)
 
     return (
         <div>

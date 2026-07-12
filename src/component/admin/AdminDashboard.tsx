@@ -14,12 +14,12 @@ import {
 } from "lucide-react";
 
 
-export default function AdminDashboard() {
-    
+export default function AdminDashboard({users,countHotels,allBookings,transactions}) {
+
     const stats = [
       {
         title: "Total Users",
-        value: "1,248",
+        value: users || "1,248",
         icon: Users,
         color: "text-blue-400",
         border: "border-blue-500/30",
@@ -27,7 +27,7 @@ export default function AdminDashboard() {
       },
       {
         title: "Hotels",
-        value: "86",
+        value: countHotels || "86",
         icon: Building2,
         color: "text-emerald-400",
         border: "border-emerald-500/30",
@@ -35,7 +35,7 @@ export default function AdminDashboard() {
       },
       {
         title: "Bookings",
-        value: "542",
+        value: allBookings || "542",
         icon: CalendarCheck,
         color: "text-violet-400",
         border: "border-violet-500/30",
@@ -43,7 +43,7 @@ export default function AdminDashboard() {
       },
       {
         title: "Transactions",
-        value: "517",
+        value: transactions || "517",
         icon: CreditCard,
         color: "text-cyan-400",
         border: "border-cyan-500/30",

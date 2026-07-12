@@ -5,7 +5,7 @@ import React from 'react';
 const page = async () => {
 
     const bookings = await adminBooking()
-    console.log(bookings)
+    // console.log(bookings)
 
     return (
         <div>
