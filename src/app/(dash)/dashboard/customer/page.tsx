@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import {
   ArrowRight,
   Bookmark,
@@ -13,7 +14,11 @@ import {
 } from "lucide-react";
 
 export default function Page() {
-  const isPro = false;
+
+  const { data: session } = authClient.useSession()
+  const user = session?.user
+
+  const isPro = user?.plan;
 
   const stats = [
     {
@@ -42,14 +47,14 @@ export default function Page() {
 
       <section
         className={`rounded-3xl p-6 text-white transition-all duration-300 ${
-          isPro
+          isPro === 'pro'
             ? "bg-gradient-to-r from-emerald-700 via-green-600 to-teal-500"
             : "border border-amber-600"
         }`}
       >
         <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            {isPro ? (
+            {isPro === 'pro' ? (
               <span className="inline-flex items-center gap-2 rounded-full bg-white/20 px-3 py-1 text-xs font-medium backdrop-blur">
                 <Crown size={14} />
                 PRO MEMBER
@@ -62,11 +67,11 @@ export default function Page() {
             )}
 
             <h1 className="mt-4 text-2xl md:text-3xl font-bold">
-              {isPro ? "Welcome Back, Premium Member 👑" : "Welcome Back 👋"}
+              {isPro === 'pro' ? "Welcome Back, Premium Member 👑" : "Welcome Back 👋"}
             </h1>
 
             <p className="mt-2 max-w-lg text-sm text-white/90">
-              {isPro
+              {isPro === 'pro'
                 ? "Enjoy all premium benefits including priority booking, unlimited wishlist and exclusive hotel deals."
                 : "Manage your bookings, wishlist and hotels from one place."}
             </p>
@@ -75,14 +80,14 @@ export default function Page() {
           <form action="/api/subscription" method="POST">
             <button type="submit"
               className={`flex w-fit cursor-pointer items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition ${
-                isPro
+                isPro === 'pro'
                   ? "bg-white text-emerald-700 hover:bg-zinc-100"
                   : "bg-linear-to-r from-violet-700 via-indigo-700 to-blue-700 hover:scale-105"
               }`}
             >
               <Crown size={18} />
 
-              {isPro ? "Manage Plan" : "Get Pro Plan"}
+              {isPro === 'pro' ? "Manage Plan" : "Get Pro Plan"}
 
               <ArrowRight size={16} />
             </button>
@@ -101,7 +106,7 @@ export default function Page() {
             <div
               key={index}
               className={`rounded-2xl border bg-zinc-900 p-5 transition-all duration-300 ${
-                isPro
+                isPro === 'pro'
                   ? "border-emerald-500/20 hover:border-emerald-400"
                   : "border-zinc-800 hover:border-orange-500/40"
               }`}
@@ -109,12 +114,12 @@ export default function Page() {
               <div className="flex items-center justify-between">
                 <div
                   className={`rounded-xl p-2.5 ${
-                    isPro ? "bg-emerald-500/10" : "bg-orange-500/10"
+                    isPro === 'pro' ? "bg-emerald-500/10" : "bg-orange-500/10"
                   }`}
                 >
                   <Icon
                     size={22}
-                    className={isPro ? "text-emerald-400" : "text-white"}
+                    className={isPro === 'pro' ? "text-emerald-400" : "text-white"}
                   />
                 </div>
 
@@ -123,7 +128,7 @@ export default function Page() {
 
               <h2
                 className={`mt-4 text-3xl font-bold ${
-                  isPro ? "text-yellow-400" : "text-white"
+                  isPro === 'pro' ? "text-yellow-400" : "text-white"
                 }`}
               >
                 {item.value}
@@ -136,7 +141,7 @@ export default function Page() {
       </div>
       {/* Membership Section */}
 
-      {isPro ? (
+      {isPro === 'pro' ? (
         <section className="overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-700 via-green-600 to-teal-500 p-6">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div>
@@ -214,9 +219,12 @@ export default function Page() {
                 booking, exclusive discounts and 24/7 premium support.
               </p>
 
-              <button className="mt-5 rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-indigo-700 transition hover:bg-gray-100">
+              <form action="/api/subscription" method="POST">
+                <button type="submit" className="mt-5 cursor-pointer rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-indigo-700 transition hover:bg-gray-300 duration-300">
                 Upgrade Now
               </button>
+              </form>
+
             </div>
 
             <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white/10">
@@ -231,22 +239,22 @@ export default function Page() {
       <div className="grid gap-5 md:grid-cols-3">
         <div
           className={`rounded-2xl border p-5 ${
-            isPro
+            isPro === 'pro'
               ? "border-yellow-500/20 bg-zinc-900"
               : "border-zinc-800 bg-zinc-900"
           }`}
         >
           <ShieldCheck
             size={22}
-            className={isPro ? "text-yellow-400" : "text-orange-500"}
+            className={isPro === 'pro' ? "text-yellow-400" : "text-orange-500"}
           />
 
           <h3 className="mt-3 text-base font-semibold text-white">
-            {isPro ? "Priority Booking" : "Secure Booking"}
+            {isPro === 'pro' ? "Priority Booking" : "Secure Booking"}
           </h3>
 
           <p className="mt-2 text-xs leading-5 text-zinc-400">
-            {isPro
+            {isPro === 'pro'
               ? "Your bookings are processed first with instant confirmations."
               : "Book hotels safely with secure payments and instant confirmation."}
           </p>
@@ -254,22 +262,22 @@ export default function Page() {
 
         <div
           className={`rounded-2xl border p-5 ${
-            isPro
+            isPro === 'pro'
               ? "border-yellow-500/20 bg-zinc-900"
               : "border-zinc-800 bg-zinc-900"
           }`}
         >
           <Star
             size={22}
-            className={isPro ? "text-yellow-400" : "text-orange-500"}
+            className={isPro === 'pro' ? "text-yellow-400" : "text-orange-500"}
           />
 
           <h3 className="mt-3 text-base font-semibold text-white">
-            {isPro ? "VIP Hotel Access" : "Top Rated Hotels"}
+            {isPro === 'pro' ? "VIP Hotel Access" : "Top Rated Hotels"}
           </h3>
 
           <p className="mt-2 text-xs leading-5 text-zinc-400">
-            {isPro
+            {isPro === 'pro'
               ? "Access premium partner hotels with exclusive member-only deals."
               : "Explore thousands of verified hotels with trusted reviews."}
           </p>
@@ -277,22 +285,22 @@ export default function Page() {
 
         <div
           className={`rounded-2xl border p-5 ${
-            isPro
+            isPro === 'pro'
               ? "border-yellow-500/20 bg-zinc-900"
               : "border-zinc-800 bg-zinc-900"
           }`}
         >
           <Sparkles
             size={22}
-            className={isPro ? "text-yellow-400" : "text-orange-500"}
+            className={isPro === 'pro' ? "text-yellow-400" : "text-orange-500"}
           />
 
           <h3 className="mt-3 text-base font-semibold text-white">
-            {isPro ? "AI Travel Assistant" : "Personalized Picks"}
+            {isPro === 'pro' ? "AI Travel Assistant" : "Personalized Picks"}
           </h3>
 
           <p className="mt-2 text-xs leading-5 text-zinc-400">
-            {isPro
+            {isPro === 'pro'
               ? "Receive AI-powered travel recommendations and smart planning."
               : "Get hotel recommendations based on your interests and searches."}
           </p>
