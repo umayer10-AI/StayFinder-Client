@@ -29,6 +29,7 @@ export default function RegisterPage() {
     defaultValues: {
         role: "customer",
         plan: "free",
+        isBlock: false,
     },
     });
 
@@ -40,6 +41,7 @@ export default function RegisterPage() {
         email: v.email,
         password: v.password,
         image: v.image,
+        isBlock: v.isBlock,
         role: v.role,
         plan: v.plan,
         callbackURL: "/",

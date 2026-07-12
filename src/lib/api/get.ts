@@ -27,3 +27,7 @@ export const adminTransictions = async() => {
 export const adminBooking = async() => {
     return getData(`/api/hotels/admin/booking`)
 }
+
+export const manageUsers = async() => {
+    return getData(`/api/users`)
+}

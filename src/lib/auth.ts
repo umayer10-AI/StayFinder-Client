@@ -1,4 +1,4 @@
-import { betterAuth } from "better-auth";
+import { betterAuth, boolean } from "better-auth";
 import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
@@ -21,6 +21,10 @@ export const auth = betterAuth({
           plan: {
               type: "string",
               defaultValue: "free"
+            },
+          isBlock: {
+              type: "boolean",
+              defaultValue: false
             },
         }
     },
