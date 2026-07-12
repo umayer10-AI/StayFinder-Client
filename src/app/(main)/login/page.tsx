@@ -7,6 +7,7 @@ import { FaHotel, FaUser, FaGoogle, FaArrowRight } from "react-icons/fa";
 import { MdEmail, MdLock, MdImage } from "react-icons/md";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { authClient } from "@/lib/auth-client";
+import toast from "react-hot-toast";
 
 type FormData = {
   email: string;
@@ -33,10 +34,26 @@ export default function LoginPage() {
     });
 
     if(data){
-        alert("Login Succesfully")
+        toast.success('Login Succesfully',
+                    {
+                        style: {
+                        borderRadius: '10px',
+                        background: '#333',
+                        color: '#fff',
+                        },
+                    }
+                );
     }
     if(error){
-        alert(error.message)
+        toast.error(`${error.message}`,
+            {
+                style: {
+                borderRadius: '10px',
+                background: '#333',
+                color: '#fff',
+                },
+            }
+        );
     }
 
   };

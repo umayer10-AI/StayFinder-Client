@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { addHotel } from "@/lib/api/action";
 import { authClient } from "@/lib/auth-client";
+import toast from "react-hot-toast";
 
 const hotelTypes = [
   "Hotel",
@@ -64,7 +65,15 @@ const AddHotel = () => {
       const returnData = await addHotel(finalData)
       
       if(returnData){
-        alert("Hotel Created")
+        toast.success('Hotel Created',
+            {
+                style: {
+                borderRadius: '10px',
+                background: '#333',
+                color: '#fff',
+                },
+            }
+        );
       }
       
       reset();

@@ -8,6 +8,7 @@ import { MdEmail, MdLock, MdImage } from "react-icons/md";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { authClient } from "@/lib/auth-client";
 import { redirect } from "next/navigation";
+import toast from "react-hot-toast";
 
 type FormData = {
   name: string;
@@ -45,7 +46,15 @@ export default function RegisterPage() {
     });
 
     if(data){
-        alert("Register Succesfully")
+        toast.success('Register Succesfully',
+            {
+                style: {
+                borderRadius: '10px',
+                background: '#333',
+                color: '#fff',
+                },
+            }
+        );
         redirect('/')
     }
     if(error){

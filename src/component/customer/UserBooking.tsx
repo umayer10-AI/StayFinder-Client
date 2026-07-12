@@ -4,6 +4,7 @@ import React from "react";
 import { Trash2 } from "lucide-react";
 import { bookingDeleteBtn } from "@/lib/api/action";
 import { redirect } from "next/navigation";
+import toast from "react-hot-toast";
 
 
 const UserBooking = ({bookings}) => {
@@ -11,6 +12,15 @@ const UserBooking = ({bookings}) => {
 
     const data = await bookingDeleteBtn(id)
     if(data.deletedCount > 0){
+        toast('Deleted',
+            {
+                style: {
+                borderRadius: '10px',
+                background: '#333',
+                color: '#fff',
+                },
+            }
+        );
         redirect('/dashboard/customer/bookings')
     }
   };
