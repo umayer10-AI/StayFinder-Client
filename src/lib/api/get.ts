@@ -35,3 +35,7 @@ export const manageUsers = async() => {
 export const manageHotels = async() => {
     return getData(`/api/admin/hotels`)
 }
+
+export const adminPlanPro = async() => {
+    return getData(`/api/admin/hotels/plan`)
+}

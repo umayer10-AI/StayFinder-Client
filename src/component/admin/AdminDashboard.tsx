@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 
-export default function AdminDashboard({users,countHotels,allBookings,transactions}) {
+export default function AdminDashboard({users,countHotels,allBookings,transactions,planPro}) {
 
     const stats = [
       {
@@ -59,7 +59,7 @@ export default function AdminDashboard({users,countHotels,allBookings,transactio
       },
       {
         title: "Pro Users",
-        value: "321",
+        value: planPro || "321",
         icon: Crown,
         color: "text-yellow-400",
         border: "border-yellow-500/30",

@@ -1,5 +1,5 @@
 import AdminDashboard from '@/component/admin/AdminDashboard';
-import { adminBooking, adminTransictions, manageHotels, manageUsers } from '@/lib/api/get';
+import { adminBooking, adminPlanPro, adminTransictions, manageHotels, manageUsers } from '@/lib/api/get';
 import React from 'react';
 
 const page = async () => {
@@ -8,7 +8,8 @@ const page = async () => {
     const totalHotels = await manageHotels()
     const allBookings = await adminBooking()
     const transactions = await adminTransictions()
-    console.log(transactions.length)
+    const planPro = await adminPlanPro()
+    console.log(planPro.length)
 
     return (
         <div>
@@ -18,6 +19,7 @@ const page = async () => {
             countHotels={totalHotels.length}
             allBookings={allBookings.length}
             transactions={transactions.length}
+            planPro={planPro.length}
             >
 
             </AdminDashboard>
