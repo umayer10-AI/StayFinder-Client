@@ -1,9 +1,10 @@
+import AdminDashboard from '@/component/admin/AdminDashboard';
 import React from 'react';
 
 const page = () => {
     return (
         <div>
-            Hello Admin
+            <AdminDashboard></AdminDashboard>
         </div>
     );
 };
