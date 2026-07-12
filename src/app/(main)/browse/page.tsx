@@ -5,6 +5,7 @@ import React from 'react';
 const page = async () => {
 
     const hotels = await allHotelsData()
+    // console.log(hotels)
 
     return (
         <div className='max-w-[80%] mx-auto'>
