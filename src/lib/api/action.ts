@@ -11,3 +11,7 @@ export const hotelEdit = async(v: unknown, hotelId: string) => {
 export const hotelDeleteBtn = async(hotelId: string) => {
     return deleteData(`/api/hotels/delete/${hotelId}`, 'DELETE')
 }
+
+export const subscriptionWork = async(v: unknown) => {
+    return postPatch(`/api/subscription`,v,'POST')
+}

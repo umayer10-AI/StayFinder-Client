@@ -2,6 +2,7 @@ import { stripe } from "@/lib/stripe";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
+import { subscriptionWork } from "@/lib/api/action";
 
 export default async function Success({
   searchParams,
@@ -16,6 +17,7 @@ export default async function Success({
 
   const {
     status,
+    metadata,
     customer_details: { email: customerEmail },
   } = await stripe.checkout.sessions.retrieve(session_id, {
     expand: ["line_items", "payment_intent"],
@@ -26,6 +28,10 @@ export default async function Success({
   }
 
   if (status === "complete") {
+
+    const result = await subscriptionWork({...metadata, session_id})
+    // console.log({...metadata, session_id})
+
     return (
       <main className="flex min-h-screen items-center justify-center bg-zinc-950 px-4">
         <div className="w-full max-w-md rounded-2xl border border-zinc-800 bg-zinc-900 p-8 shadow-xl">
