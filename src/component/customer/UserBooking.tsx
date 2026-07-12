@@ -2,16 +2,17 @@
 
 import React from "react";
 import { Trash2 } from "lucide-react";
+import { bookingDeleteBtn } from "@/lib/api/action";
+import { redirect } from "next/navigation";
 
 
 const UserBooking = ({bookings}) => {
-  const handleDelete = (id: string) => {
-    console.log("Delete:", id);
+  const handleDelete = async (id: string) => {
 
-    // API call এখানে করবে
-    // fetch(`/api/bookings/${id}`, {
-    //   method: "DELETE",
-    // });
+    const data = await bookingDeleteBtn(id)
+    if(data.deletedCount > 0){
+        redirect('/dashboard/customer/bookings')
+    }
   };
 
   return (
@@ -81,7 +82,7 @@ const UserBooking = ({bookings}) => {
                   <td className="px-4 py-4 text-center">
                     <button
                       onClick={() => handleDelete(booking._id)}
-                      className="rounded-lg bg-red-600 p-2 text-white transition hover:bg-red-700"
+                      className="rounded-lg bg-red-600 cursor-pointer p-2 text-white transition hover:bg-red-700"
                     >
                       <Trash2 size={18} />
                     </button>
