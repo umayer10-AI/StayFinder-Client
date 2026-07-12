@@ -106,10 +106,22 @@ export default function Details({ hotel }: { hotel: any }) {
                 </button>
               </div>
 
-              <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-orange-600 via-orange-600 to-orange-400 py-3 font-semibold text-white transition hover:scale-[1.02]">
+              <form action={'/api/payment'} method="POST">
+                <input type="hidden" name="userId" value={hotel?.userId} />
+                <input type="hidden" name="hotelId" value={hotel?._id} />
+                <input type="hidden" name="price" value={4000.99} />
+                <input type="hidden" name="hotelName" value={hotel?.title} />
+
+                <button type="submit" className="mt-4 flex w-full items-center justify-center gap-2 cursor-pointer rounded-xl bg-gradient-to-r from-orange-600 via-orange-600 to-orange-400 py-3 font-semibold text-white transition hover:scale-[1.02]">
+                    <CalendarDays size={20} />
+                    Book Now
+                </button>
+            </form>
+
+              {/* <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-orange-600 via-orange-600 to-orange-400 py-3 font-semibold text-white transition hover:scale-[1.02]">
                 <CalendarDays size={20} />
                 Book Now
-              </button>
+              </button> */}
             </div>
 
             {/* Booking Info */}
