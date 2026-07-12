@@ -107,7 +107,7 @@ export default function Navbar() {
                 </button>
                 {profileOpen && (
                   <div className="absolute right-0 mt-3 w-56 rounded-xl border border-slate-800 bg-slate-900 p-2 shadow-xl">
-                    <Link href="/profile" className="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-800">
+                    <Link href={`/dashboard/${user?.role}/profile`} className="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-800">
                       <User className="h-4 w-4" /> Profile
                     </Link>
                     <Link href="/settings" className="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-800">

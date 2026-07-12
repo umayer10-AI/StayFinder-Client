@@ -12,7 +12,7 @@ export default function Card({ hotel }: { hotel: any }) {
   return (
     <div className="group overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500 hover:shadow-2xl hover:shadow-orange-500/20">
       {/* Image */}
-      <div className="relative h-40 overflow-hidden">
+      <div className="relative h-45 overflow-hidden">
         <Image
           src={hotel.image}
           alt={hotel.title}
@@ -32,13 +32,13 @@ export default function Card({ hotel }: { hotel: any }) {
       {/* Content */}
       <div className="space-y-1 p-5">
         <div>
-          <h2 className="line-clamp-1 text-xl font-bold text-white">
+          <h2 className="line-clamp-1 mb-2 text-xl font-bold text-white">
             {hotel.title}
           </h2>
 
-          <p className="mt-2 line-clamp-2 text-sm leading-6 text-zinc-400">
+          {/* <p className="mt-2 line-clamp-2 text-sm leading-6 text-zinc-400">
             {hotel.description}
-          </p>
+          </p> */}
         </div>
 
         {/* Hotel Info */}

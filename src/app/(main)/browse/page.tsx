@@ -8,7 +8,7 @@ const page = async () => {
     // console.log(hotels)
 
     return (
-        <div className='max-w-[80%] mx-auto'>
+        <div className='max-w-[80%] mx-auto mb-20'>
             <AllCards hotels={hotels}></AllCards>
         </div>
     );
