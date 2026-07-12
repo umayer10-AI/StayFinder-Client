@@ -39,3 +39,7 @@ export const manageHotels = async() => {
 export const adminPlanPro = async() => {
     return getData(`/api/admin/hotels/plan`)
 }
+
+export const adminIsBlock = async() => {
+    return getData(`/api/admin/block`)
+}

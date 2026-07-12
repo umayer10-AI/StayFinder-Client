@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 
-export default function AdminDashboard({users,countHotels,allBookings,transactions,planPro}) {
+export default function AdminDashboard({users,countHotels,allBookings,transactions,planPro,blockList}) {
 
     const stats = [
       {
@@ -67,7 +67,7 @@ export default function AdminDashboard({users,countHotels,allBookings,transactio
       },
       {
         title: "Blocked Users",
-        value: "9",
+        value: blockList || "9",
         icon: ShieldBan,
         color: "text-red-400",
         border: "border-red-500/30",

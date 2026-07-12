@@ -1,5 +1,5 @@
 import AdminDashboard from '@/component/admin/AdminDashboard';
-import { adminBooking, adminPlanPro, adminTransictions, manageHotels, manageUsers } from '@/lib/api/get';
+import { adminBooking, adminIsBlock, adminPlanPro, adminTransictions, manageHotels, manageUsers } from '@/lib/api/get';
 import React from 'react';
 
 const page = async () => {
@@ -9,7 +9,8 @@ const page = async () => {
     const allBookings = await adminBooking()
     const transactions = await adminTransictions()
     const planPro = await adminPlanPro()
-    console.log(planPro.length)
+    const blockList = await adminIsBlock()
+    console.log(blockList.length)
 
     return (
         <div>
@@ -20,6 +21,7 @@ const page = async () => {
             allBookings={allBookings.length}
             transactions={transactions.length}
             planPro={planPro.length}
+            blockList={blockList.length}
             >
 
             </AdminDashboard>
