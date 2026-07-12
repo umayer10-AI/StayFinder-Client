@@ -36,13 +36,13 @@ export default function Navbar() {
 
   const guestRoutes = [
     { name: "Home", href: "/", icon: Home },
-    { name: "Rooms", href: "/rooms", icon: Building2 },
+    { name: "Browse", href: "/browse", icon: Building2 },
     { name: "About", href: "/about", icon: Hotel },
   ];
 
   const userRoutes = [
     { name: "Home", href: "/", icon: Home },
-    { name: "Rooms", href: "/rooms", icon: Building2 },
+    { name: "Browse", href: "/browse", icon: Building2 },
     { name: "About", href: "/about", icon: Hotel },
     { name: "Wishlist", href: "/wishlist", icon: Heart },
     { name: "Dashboard", href: `/dashboard/${user?.role}`, icon: LayoutDashboard },
