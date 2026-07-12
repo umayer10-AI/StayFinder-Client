@@ -15,3 +15,7 @@ export const singleHotelData = async(id: string) => {
 export const userTransiction = async(id: string) => {
     return getData(`/api/hotels/customer/transiction/${id}`)
 }
+
+export const userBooking = async(id: string) => {
+    return getData(`/api/hotels/customer/transiction/booking/${id}`)
+}

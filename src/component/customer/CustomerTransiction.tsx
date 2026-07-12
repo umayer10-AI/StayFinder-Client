@@ -2,18 +2,6 @@
 
 import React from "react";
 
-// const transactions = [
-//   {
-//     session_id:
-//       "cs_test_a1EbUsS3Z3Ms7900zyG1tJbwFTear0s8VfdGf422TQSQDDrKxUXKpuSmMs",
-//     price: "4000.99",
-//     userId: "6a5101c1dd8d642bff708ef0",
-//     userEmail: "mdumayer20@gmail.com",
-//     hotelName: "Banglasdeshi House",
-//     hotelId: "6a523c158a716a17a55811ba",
-//     paidAt: "2026-07-12T07:28:31.359+00:00",
-//   },
-// ];
 
 const CustomerTransiction = ({transactions}) => {
   return (

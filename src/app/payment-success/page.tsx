@@ -65,7 +65,7 @@ export default async function Success({
           {/* Buttons */}
           <div className="mt-6 flex gap-3">
             <Link
-              href="/dashboard/customer/bookings"
+              href="/dashboard/customer"
               className="flex-1 rounded-xl bg-green-600 px-4 py-3 text-center font-semibold text-white transition hover:bg-green-700"
             >
               Dashboard
