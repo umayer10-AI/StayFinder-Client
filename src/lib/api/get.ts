@@ -19,3 +19,7 @@ export const userTransiction = async(id: string) => {
 export const userBooking = async(id: string) => {
     return getData(`/api/hotels/customer/transiction/booking/${id}`)
 }
+
+export const adminTransictions = async() => {
+    return getData(`/api/hotels/transiction/colection`)
+}
