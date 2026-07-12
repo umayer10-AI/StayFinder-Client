@@ -11,3 +11,7 @@ export const allHotelsData = async() => {
 export const singleHotelData = async(id: string) => {
     return getData(`/api/hotels/single/${id}`)
 }
+
+export const userTransiction = async(id: string) => {
+    return getData(`/api/hotels/customer/transiction/${id}`)
+}
