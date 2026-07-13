@@ -11,9 +11,14 @@ const myHotelPage = async () => {
     const session = await auth.api.getSession({
         headers: await headers(),
     });
+
+    const {token} = await auth.api.getToken({
+        headers: await headers(),
+    });
+
     const user = session?.user
-    const hotels = await getuserHotelsData(user?.id)
-    // console.log(hotels)
+    const hotels = await getuserHotelsData(user?.id, token)
+    console.log(token)
 
     return (
         <div>

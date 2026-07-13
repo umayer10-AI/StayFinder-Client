@@ -1,7 +1,15 @@
 import { getData } from "../mutation"
 
-export const getuserHotelsData = async(userId: string) => {
-    return getData(`/api/hotels/${userId}`)
+const BaseUrl = process.env.NEXT_PUBLIC_SERVER_API;
+
+export const getuserHotelsData = async(userId: string, token: string) => {
+    const res = await fetch(`${BaseUrl}/api/hotels/${userId}`,{
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    })
+    return res.json()
+    // return getData(`/api/hotels/${userId}`)
 }
 
 export const allHotelsData = async() => {
