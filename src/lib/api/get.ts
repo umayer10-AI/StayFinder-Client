@@ -9,7 +9,6 @@ export const getuserHotelsData = async(userId: string, token: string) => {
         }
     })
     return res.json()
-    // return getData(`/api/hotels/${userId}`)
 }
 
 export const allHotelsData = async() => {
@@ -20,28 +19,48 @@ export const singleHotelData = async(id: string) => {
     return getData(`/api/hotels/single/${id}`)
 }
 
-export const userTransiction = async(id: string) => {
-    return getData(`/api/hotels/customer/transiction/${id}`)
+export const userTransiction = async(id: string, t: unknown) => {
+    const res = await fetch(`${BaseUrl}/api/hotels/customer/transiction/${id}`,{
+        headers: {
+            authorization: `Bearer ${t}`
+        }
+    })
+    return res.json()
 }
 
 export const userBooking = async(id: string) => {
     return getData(`/api/hotels/customer/transiction/booking/${id}`)
 }
 
-export const adminTransictions = async() => {
-    return getData(`/api/hotels/transiction/colection`)
+export const adminTransictions = async(t: unknown) => {
+    const res = await fetch(`${BaseUrl}/api/hotels/transiction/colection`,{
+        headers: {
+            authorization: `Bearer ${t}`
+        }
+    })
+    return res.json()
 }
 
 export const adminBooking = async() => {
     return getData(`/api/hotels/admin/booking`)
 }
 
-export const manageUsers = async() => {
-    return getData(`/api/users`)
+export const manageUsers = async(t: unknown) => {
+    const res = await fetch(`${BaseUrl}/api/users`,{
+        headers: {
+            authorization: `Bearer ${t}`
+        }
+    })
+    return res.json()
 }
 
-export const manageHotels = async() => {
-    return getData(`/api/admin/hotels`)
+export const manageHotels = async(t: unknown) => {
+    const res = await fetch(`${BaseUrl}/api/admin/hotels`,{
+        headers: {
+            authorization: `Bearer ${t}`
+        }
+    })
+    return res.json()
 }
 
 export const adminPlanPro = async() => {

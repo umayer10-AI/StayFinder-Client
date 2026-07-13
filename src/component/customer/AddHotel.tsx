@@ -46,6 +46,11 @@ const AddHotel = () => {
   };
 
   const onSubmit = async (data: any) => {
+
+    const token = await authClient.token()
+    const t = token?.data?.token
+    // console.log(t)
+
     setLoading(true);
     try {
       let imageUrl = "";
@@ -60,9 +65,9 @@ const AddHotel = () => {
             like: 0,
             image: imageUrl 
         };
-      console.log("Form Submitted Successfully:", finalData);
+      console.log("Form Submitted Successfully:", finalData,t);
 
-      const returnData = await addHotel(finalData)
+      const returnData = await addHotel(finalData, t)
       
       if(returnData){
         toast.success('Hotel Created',

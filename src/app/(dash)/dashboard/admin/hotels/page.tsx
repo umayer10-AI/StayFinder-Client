@@ -1,10 +1,15 @@
 import AdminHotel from '@/component/admin/AdminHotel';
 import { manageHotels } from '@/lib/api/get';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 import React from 'react';
 
 const page = async () => {
 
-    const hotels = await manageHotels()
+    const {token} = await auth.api.getToken({
+        headers: await headers()
+    })
+    const hotels = await manageHotels(token)
     // console.log(hotels)
 
     return (

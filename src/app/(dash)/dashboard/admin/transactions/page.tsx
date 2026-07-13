@@ -1,15 +1,21 @@
-import CustomerTransiction from '@/component/customer/CustomerTransiction';
+import AdminTransiction from '@/component/admin/AdminTransiction';
 import { adminTransictions } from '@/lib/api/get';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
+
 import React from 'react';
 
 const page = async () => {
 
-    const transactions = await adminTransictions()
+    const {token} = await auth.api.getToken({
+        headers: await headers()
+    })
+    const transactions = await adminTransictions(token)
     // console.log(transactions)
 
     return (
         <div>
-            <CustomerTransiction transactions={transactions}></CustomerTransiction>
+            <AdminTransiction transactions={transactions}></AdminTransiction>
         </div>
     );
 };

@@ -5,6 +5,7 @@ import { Pencil, X } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { hotelEdit } from "@/lib/api/action";
 import { redirect } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 const hotelTypes = [
   "Hotel",
@@ -35,13 +36,17 @@ const HotelEdit = ({ hotel }: any) => {
   }, [hotel, reset]);
 
   const onSubmit = async (data: any) => {
+
+    const token = await authClient.token()
+      const t = token?.data?.token
+
     const updateData = {
       id: hotel._id,
       ...data,
     };
 
     console.log("Updated Data:", updateData);
-    const finalData = await hotelEdit(updateData, hotel._id)
+    const finalData = await hotelEdit(updateData, hotel._id, t)
 
     if(finalData.modifiedCount > 0){
         alert("Update Data")

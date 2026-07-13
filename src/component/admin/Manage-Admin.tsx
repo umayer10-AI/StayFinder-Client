@@ -6,12 +6,16 @@ import { bookingDeleteBtn } from "@/lib/api/action";
 import { redirect } from "next/navigation";
 import toast from "react-hot-toast";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
 
 
 const ManageBooking = ({bookings}) => {
   const handleDelete = async (id: string) => {
 
-    const data = await bookingDeleteBtn(id)
+    const token = await authClient.token()
+    const t = token?.data?.token
+
+    const data = await bookingDeleteBtn(id, t)
     if(data.deletedCount > 0){
         toast('Deleted',
             {
@@ -22,7 +26,7 @@ const ManageBooking = ({bookings}) => {
                 },
             }
         );
-        redirect('/dashboard/customer/bookings')
+        redirect('/dashboard/admin/bookings')
     }
   };
 

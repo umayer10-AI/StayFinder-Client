@@ -4,13 +4,18 @@ import { useState } from "react";
 import { Trash2, X, AlertCircle } from "lucide-react";
 import { hotelDeleteBtn } from "@/lib/api/action";
 import { redirect } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 export default function HotelDelete({hotel}) {
   const [open, setOpen] = useState(false);
 //   console.log(hotel)
 
   const handleDelete = async () => {
-    const data = await hotelDeleteBtn(hotel._id)
+
+    const token = await authClient.token()
+    const t = token?.data?.token
+
+    const data = await hotelDeleteBtn(hotel._id, t)
     if(data.deletedCount > 0){
         alert('Hotel Deleted')
         redirect('/dashboard/customer/my-hotel')
