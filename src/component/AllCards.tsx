@@ -1,25 +1,35 @@
-import Card from './Card';
-import HotelSearch from './HotelSearch';
+import Card from "./Card";
+import HotelSearch from "./HotelSearch";
 
-const AllCards = ({hotels}) => {
+interface Hotel {
+  _id: string;
+  title: string;
+  type: string;
+  description: string;
+  location: string;
+  contact: string;
+  price: string;
+  image: string;
+}
 
-    console.log(hotels)
+interface AllCardsProps {
+  hotels: Hotel[];
+}
 
-    return (
-        <div>
+const AllCards = ({ hotels }: AllCardsProps) => {
+  return (
+    <div>
+      <div className="my-10">
+        <HotelSearch />
+      </div>
 
-            <div className='my-10'>
-                <HotelSearch></HotelSearch>
-            </div>
-
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6'>
-                {
-                 hotels.map(v => <Card key={v._id} hotel={v}></Card>)
-                }
-            </div>
-            
-        </div>
-    );
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+        {hotels.map((hotel) => (
+          <Card key={hotel._id} hotel={hotel} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default AllCards;

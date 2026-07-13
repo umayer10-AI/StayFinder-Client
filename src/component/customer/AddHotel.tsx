@@ -24,8 +24,18 @@ const hotelTypes = [
   "Hostel",
 ];
 
+interface HotelForm {
+  title: string;
+  type: string;
+  description: string;
+  location: string;
+  contact: string;
+  price: number;
+  image: FileList;
+}
+
 const AddHotel = () => {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm<HotelForm>();
   const [loading, setLoading] = useState(false);
 
   const { data: session } = authClient.useSession()
@@ -45,7 +55,7 @@ const AddHotel = () => {
     return data.secure_url;
   };
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: HotelForm) => {
 
     const token = await authClient.token()
     const t = token?.data?.token
@@ -65,7 +75,7 @@ const AddHotel = () => {
             like: 0,
             image: imageUrl 
         };
-      console.log("Form Submitted Successfully:", finalData,t);
+      // console.log("Form Submitted Successfully:", finalData,t);
 
       const returnData = await addHotel(finalData, t)
       
