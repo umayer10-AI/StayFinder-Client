@@ -16,6 +16,8 @@ type FormData = {
   image: string;
   password: string;
   role: "customer" | "admin";
+  plan: "free" | "pro";
+  isBlock: boolean;
 };
 
 export default function RegisterPage() {

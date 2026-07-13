@@ -1,12 +1,16 @@
 import Details from '@/component/Details';
 import { singleHotelData } from '@/lib/api/get';
-import React from 'react';
 
-const page = async ({params}) => {
+interface PageProps {
+  params: Promise<{
+    id: string;
+  }>;
+}
+
+const page = async ({params}: PageProps) => {
 
     const {id} = await params
     const hotel = await singleHotelData(id)
-    // console.log(hotel)
 
     return (
         <div>
