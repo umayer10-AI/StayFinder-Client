@@ -2,9 +2,21 @@ import BookingPage from '@/component/customer/Booking';
 import { getuserHotelsData } from '@/lib/api/get';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
-import Image from "next/image";
-import { Pencil, Trash2 } from "lucide-react";
-import React from 'react';
+
+interface Hotel {
+  _id: string;
+  title: string;
+  type: string;
+  description: string;
+  location: string;
+  contact: string;
+  price: string;
+  image: string;
+  userId: string;
+  userEmail: string;
+  like: number;
+}
+
 
 const myHotelPage = async () => {
 
@@ -17,8 +29,19 @@ const myHotelPage = async () => {
     });
 
     const user = session?.user
-    const hotels = await getuserHotelsData(user?.id, token)
-    console.log(token)
+
+    if (!user) {
+    return (
+      <div className="flex min-h-[70vh] items-center justify-center">
+        <h2 className="text-xl font-semibold text-white">
+          Unauthorized Access
+        </h2>
+      </div>
+    );
+  }
+
+    const hotels: Hotel[] = await getuserHotelsData(user?.id, token)
+    // console.log(token)
 
     return (
         <div>
@@ -70,7 +93,7 @@ const myHotelPage = async () => {
                         <tbody>
             
                           {
-                            hotels.map((hotel) => <BookingPage key={hotel._id} hotel={hotel}></BookingPage>)
+                            hotels.map((hotel: Hotel) => <BookingPage key={hotel._id} hotel={hotel}></BookingPage>)
                           }
             
                         </tbody>

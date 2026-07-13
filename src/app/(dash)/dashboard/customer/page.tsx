@@ -18,6 +18,16 @@ export default function Page() {
   const { data: session } = authClient.useSession()
   const user = session?.user
 
+  if (!user) {
+    return (
+      <div className="flex min-h-[70vh] items-center justify-center">
+        <h2 className="text-xl font-semibold text-white">
+          Unauthorized Access
+        </h2>
+      </div>
+    );
+  }
+
   const isPro = user?.plan;
 
   const stats = [
@@ -142,7 +152,7 @@ export default function Page() {
       {/* Membership Section */}
 
       {isPro === 'pro' ? (
-        <section className="overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-700 via-green-600 to-teal-500 p-6">
+        <section className="overflow-hidden rounded-3xl bg-linear-to-r from-emerald-700 via-green-600 to-teal-500 p-6">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full bg-black/20 px-3 py-1 text-xs font-medium text-white backdrop-blur">
@@ -202,7 +212,7 @@ export default function Page() {
           </div>
         </section>
       ) : (
-        <section className="overflow-hidden rounded-3xl bg-gradient-to-r from-violet-700 via-indigo-700 to-blue-700 p-6">
+        <section className="overflow-hidden rounded-3xl bg-linear-to-r from-violet-700 via-indigo-700 to-blue-700 p-6">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-medium text-white">
