@@ -68,13 +68,13 @@ const ManageBooking = ({bookings}) => {
                   <td className="px-4 py-3">
                     <img
                       src={booking.image}
-                      alt={booking.title}
+                      alt={booking.hotelName}
                       className="h-16 w-20 rounded-lg object-cover"
                     />
                   </td>
 
                   <td className="px-4 py-3 font-medium text-white">
-                    {booking.title}
+                    {booking.hotelName}
                   </td>
 
                   <td className="px-4 py-3 text-zinc-300">

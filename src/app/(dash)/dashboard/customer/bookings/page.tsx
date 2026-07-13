@@ -7,7 +7,6 @@ const page = async () => {
 
   const user = await serverSession()
   const bookings = await userBooking(user?.id)
-  console.log(bookings)
 
   return (
     <div>

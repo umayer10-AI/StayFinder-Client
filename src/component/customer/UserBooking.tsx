@@ -5,12 +5,17 @@ import { Trash2 } from "lucide-react";
 import { bookingDeleteBtn } from "@/lib/api/action";
 import { redirect } from "next/navigation";
 import toast from "react-hot-toast";
+import { authClient } from "@/lib/auth-client";
 
 
 const UserBooking = ({bookings}) => {
+
   const handleDelete = async (id: string) => {
 
-    const data = await bookingDeleteBtn(id)
+    const token = await authClient.token()
+    const t = token?.data?.token
+
+    const data = await bookingDeleteBtn(id, t)
     if(data.deletedCount > 0){
         toast('Deleted',
             {
@@ -63,13 +68,13 @@ const UserBooking = ({bookings}) => {
                   <td className="px-4 py-4">
                     <img
                       src={booking.image}
-                      alt={booking.title}
+                      alt={booking.hotelName}
                       className="h-16 w-20 rounded-lg object-cover"
                     />
                   </td>
 
                   <td className="px-4 py-4 font-medium text-white">
-                    {booking.title}
+                    {booking.hotelName}
                   </td>
 
                   <td className="px-4 py-4 text-zinc-300">

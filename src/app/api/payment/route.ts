@@ -10,6 +10,7 @@ export async function POST(request) {
     const origin = headersList.get('origin')
 
     const user = await serverSession()
+    console.log({user})
 
     const formData = await request.formData()
     const hotelName = formData.get('hotelName')

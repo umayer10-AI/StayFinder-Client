@@ -11,7 +11,8 @@ export const postPatch = async (
     method: methodData,
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${t}`
+      authorization: `Bearer ${t}`,
+      cache: 'no-store'
     },
     body: JSON.stringify(v),
   });
@@ -22,7 +23,9 @@ export const postPatch = async (
 
 
 export const getData = async (path: string) => {
-    const res = await fetch(`${BaseUrl}${path}`)
+    const res = await fetch(`${BaseUrl}${path}`,{
+      cache: 'no-store'
+    })
     return res.json()
 }
 
@@ -31,7 +34,8 @@ export const deleteData = async (path: string, methodData: string = "DELETE",t: 
     const res = await fetch(`${BaseUrl}${path}`,{
         method: methodData,
         headers: {
-          authorization: `Bearer ${t}`
+          authorization: `Bearer ${t}`,
+          cache: 'no-store'
         }
     })
     return res.json()

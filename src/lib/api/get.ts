@@ -5,7 +5,8 @@ const BaseUrl = process.env.NEXT_PUBLIC_SERVER_API;
 export const getuserHotelsData = async(userId: string, token: string) => {
     const res = await fetch(`${BaseUrl}/api/hotels/${userId}`,{
         headers: {
-            authorization: `Bearer ${token}`
+            authorization: `Bearer ${token}`,
+            cache: 'no-store'
         }
     })
     return res.json()
@@ -22,7 +23,8 @@ export const singleHotelData = async(id: string) => {
 export const userTransiction = async(id: string, t: unknown) => {
     const res = await fetch(`${BaseUrl}/api/hotels/customer/transiction/${id}`,{
         headers: {
-            authorization: `Bearer ${t}`
+            authorization: `Bearer ${t}`,
+            cache: 'no-store'
         }
     })
     return res.json()
@@ -35,7 +37,8 @@ export const userBooking = async(id: string) => {
 export const adminTransictions = async(t: unknown) => {
     const res = await fetch(`${BaseUrl}/api/hotels/transiction/colection`,{
         headers: {
-            authorization: `Bearer ${t}`
+            authorization: `Bearer ${t}`,
+            cache: 'no-store'
         }
     })
     return res.json()
@@ -48,7 +51,8 @@ export const adminBooking = async() => {
 export const manageUsers = async(t: unknown) => {
     const res = await fetch(`${BaseUrl}/api/users`,{
         headers: {
-            authorization: `Bearer ${t}`
+            authorization: `Bearer ${t}`,
+            cache: 'no-store'
         }
     })
     return res.json()
@@ -57,7 +61,8 @@ export const manageUsers = async(t: unknown) => {
 export const manageHotels = async(t: unknown) => {
     const res = await fetch(`${BaseUrl}/api/admin/hotels`,{
         headers: {
-            authorization: `Bearer ${t}`
+            authorization: `Bearer ${t}`,
+            cache: 'no-store'
         }
     })
     return res.json()
