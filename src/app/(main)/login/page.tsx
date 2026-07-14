@@ -154,7 +154,7 @@ export default function LoginPage() {
             type="submit"
             className="flex w-full mt-7 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-orange-600 to-orange-400 py-2 font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:from-orange-500 hover:to-orange-300"
           >
-            Create Account
+            Login Account
             <FaArrowRight />
           </button>
 
