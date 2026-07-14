@@ -1,12 +1,15 @@
 "use client";
 
+import Reveal from "@/component/Reveal";
 import { Award, Users, Hotel, ShieldCheck } from "lucide-react";
 
 export default function AboutPage() {
   return (
-    <div className="bg-slate-950 min-h-screen text-slate-200">
+    <div 
+    className="bg-slate-950 min-h-screen text-slate-200">
       {/* Hero Section */}
-      <section className="py-20 px-6 text-center">
+      <Reveal>
+        <section className="py-20 px-6 text-center">
         <h1 className="text-5xl font-extrabold text-white mb-6">
           About <span className="text-orange-500">StayFinder</span>
         </h1>
@@ -16,9 +19,11 @@ export default function AboutPage() {
           wherever you go.
         </p>
       </section>
+      </Reveal>
 
       {/* Stats/Features Section */}
-      <section className="py-16 px-6 max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+      <Reveal>
+        <section className="py-16 px-6 max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
         {[
           { icon: Hotel, title: "100K+ Properties", desc: "A vast collection of verified stays worldwide." },
           { icon: Users, title: "50K+ Happy Guests", desc: "Trusted by travelers across the globe." },
@@ -32,9 +37,11 @@ export default function AboutPage() {
           </div>
         ))}
       </section>
+      </Reveal>
 
       {/* Our Mission */}
-      <section className="py-20 px-6 bg-slate-900">
+      <Reveal>
+        <section className="py-20 px-6 bg-slate-900">
         <div className="max-w-[80%] 2xl:max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl font-bold text-white mb-6">Our Mission</h2>
@@ -58,9 +65,11 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      </Reveal>
 
       {/* Why Choose Us */}
-      <section className="py-20 px-6 max-w-7xl mx-auto">
+      <Reveal>
+        <section className="py-20 px-6 max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-white mb-12 text-center">Why Choose StayFinder?</h2>
         <div className="space-y-6 text-slate-400 max-w-3xl mx-auto">
           <p>✅ <strong>Transparency:</strong> Every listing is verified, ensuring you get exactly what you see.</p>
@@ -69,6 +78,7 @@ export default function AboutPage() {
           <p>✅ <strong>24/7 Support:</strong> We are always just a click away to assist you with your travel needs.</p>
         </div>
       </section>
+      </Reveal>
     </div>
   );
 }
