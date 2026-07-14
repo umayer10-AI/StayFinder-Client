@@ -7,18 +7,24 @@ const page = async ({
   searchParams: Promise<{
     search?: string;
     category?: string;
+    page?: string;
   }>;
 }) => {
   const params = await searchParams;
 
-  const hotels = await allHotelsData(
+  const data = await allHotelsData(
     params.search || "",
-    params.category || ""
+    params.category || "",
+    Number(params.page) || 1
   );
 
   return (
     <div className="max-w-[80%] mx-auto mb-20">
-      <AllCards hotels={hotels} />
+      <AllCards
+        hotels={data.hotels}
+        totalPages={data.totalPages}
+        currentPage={data.currentPage}
+      />
     </div>
   );
 };

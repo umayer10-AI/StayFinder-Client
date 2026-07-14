@@ -1,22 +1,18 @@
 import Card from "./Card";
 import HotelSearch from "./HotelSearch";
-
-interface Hotel {
-  _id: string;
-  title: string;
-  type: string;
-  description: string;
-  location: string;
-  contact: string;
-  price: string;
-  image: string;
-}
+import Pagination from "./Pagination";
 
 interface AllCardsProps {
   hotels: Hotel[];
+  totalPages: number;
+  currentPage: number;
 }
 
-const AllCards = ({ hotels }: AllCardsProps) => {
+const AllCards = ({
+  hotels,
+  totalPages,
+  currentPage,
+}: AllCardsProps) => {
   return (
     <div>
       <div className="my-10">
@@ -28,6 +24,11 @@ const AllCards = ({ hotels }: AllCardsProps) => {
           <Card key={hotel._id} hotel={hotel} />
         ))}
       </div>
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+      />
     </div>
   );
 };

@@ -16,22 +16,46 @@ export const getuserHotelsData = async(userId: string, token: string) => {
 //     return getData(`/api/hotels`)
 // }
 
+// export const allHotelsData = async (
+//   search = "",
+//   category = ""
+// ) => {
+//   const params = new URLSearchParams();
+
+//   if (search) {
+//     params.append("search", search);
+//   }
+
+//   if (category) {
+//     params.append("category", category);
+//   }
+
+//   const res = await fetch(
+//     `${process.env.NEXT_PUBLIC_SERVER_API}/api/hotels?${params.toString()}`,
+//     {
+//       cache: "no-store",
+//     }
+//   );
+
+//   return res.json();
+// };
+
 export const allHotelsData = async (
   search = "",
-  category = ""
+  category = "",
+  page = 1
 ) => {
   const params = new URLSearchParams();
 
-  if (search) {
-    params.append("search", search);
-  }
+  if (search) params.append("search", search);
 
-  if (category) {
-    params.append("category", category);
-  }
+  if (category) params.append("category", category);
+
+  params.append("page", page.toString());
+  params.append("limit", "8");
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER_API}/api/hotels?${params.toString()}`,
+    `${process.env.NEXT_PUBLIC_SERVER_API}/api/hotels?${params}`,
     {
       cache: "no-store",
     }
