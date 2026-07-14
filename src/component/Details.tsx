@@ -8,8 +8,13 @@ import {
   Bookmark,
   CalendarDays,
 } from "lucide-react";
+import { serverSession } from "@/lib/sessoin";
+import Link from "next/link";
 
-export default function Details({ hotel }: { hotel: any }) {
+export default async function Details({ hotel }: { hotel: any }) {
+
+  const user = await serverSession()
+
   return (
     <section className="bg-zinc-950 py-10">
       <div className="mx-auto max-w-7xl px-4">
@@ -106,7 +111,7 @@ export default function Details({ hotel }: { hotel: any }) {
                 </button>
               </div>
 
-              <form action={'/api/payment'} method="POST">
+              {/* <form action={'/api/payment'} method="POST">
                 <input type="hidden" name="userId" value={hotel?.userId} />
                 <input type="hidden" name="hotelId" value={hotel?._id} />
                 <input type="hidden" name="price" value={4000.99} />
@@ -116,12 +121,28 @@ export default function Details({ hotel }: { hotel: any }) {
                     <CalendarDays size={20} />
                     Book Now
                 </button>
-            </form>
+            </form> */}
 
-              {/* <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-orange-600 via-orange-600 to-orange-400 py-3 font-semibold text-white transition hover:scale-[1.02]">
-                <CalendarDays size={20} />
-                Book Now
-              </button> */}
+            {
+              user? 
+                  <form action={'/api/payment'} method="POST">
+                    <input type="hidden" name="userId" value={hotel?.userId} />
+                    <input type="hidden" name="hotelId" value={hotel?._id} />
+                    <input type="hidden" name="price" value={4000.99} />
+                    <input type="hidden" name="hotelName" value={hotel?.title} />
+
+                    <button type="submit" className="mt-4 flex w-full items-center justify-center gap-2 cursor-pointer rounded-xl bg-gradient-to-r from-orange-600 via-orange-600 to-orange-400 py-3 font-semibold text-white transition hover:scale-[1.02]">
+                        <CalendarDays size={20} />
+                        Book Now
+                    </button>
+                </form>
+                :
+                <Link href={'/login'} className="mt-4 flex w-full items-center justify-center gap-2 cursor-pointer rounded-xl bg-gradient-to-r from-orange-600 via-orange-600 to-orange-400 py-3 font-semibold text-white transition hover:scale-[1.02]">
+                        <CalendarDays size={20} />
+                        Book Now
+                </Link>
+            }
+
             </div>
 
             {/* Booking Info */}
