@@ -23,6 +23,7 @@ import {
   TrendingUp,
   Activity,
 } from "lucide-react";
+import Reveal from "@/component/Reveal";
 
 const revenueData = [
   { month: "Jan", revenue: 4000 },
@@ -53,7 +54,8 @@ const COLORS = ["#10b981", "#f59e0b", "#ef4444"];
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-zinc-950 p-6 text-white">
+    <Reveal>
+      <div className="min-h-screen bg-zinc-950 p-6 text-white">
       {/* Header */}
       <div className="mb-8 flex items-center justify-between">
         <div>
@@ -214,6 +216,7 @@ export default function Page() {
         </div>
       </div>
     </div>
+    </Reveal>
   );
 }
 
@@ -236,7 +239,8 @@ function Card({
   };
 
   return (
-    <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6 transition hover:border-emerald-500/40">
+    <Reveal>
+      <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6 transition hover:border-emerald-500/40">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-zinc-400">{title}</p>
@@ -253,6 +257,7 @@ function Card({
         </div>
       </div>
     </div>
+    </Reveal>
   );
 }
 
@@ -264,7 +269,8 @@ function ActivityItem({
   time: string;
 }) {
   return (
-    <div className="flex items-center justify-between rounded-xl border border-zinc-800 bg-zinc-950 p-4">
+    <Reveal>
+      <div className="flex items-center justify-between rounded-xl border border-zinc-800 bg-zinc-950 p-4">
       <div>
         <h3 className="font-medium">{title}</h3>
         <p className="text-sm text-zinc-500">{time}</p>
@@ -272,5 +278,6 @@ function ActivityItem({
 
       <span className="h-3 w-3 rounded-full bg-emerald-500"></span>
     </div>
+    </Reveal>
   );
 }
