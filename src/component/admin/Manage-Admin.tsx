@@ -105,7 +105,7 @@ const ManageBooking = ({bookings}: any) => {
                   <td className="px-4 py-3 text-center">
   <div className="flex items-center justify-center gap-2">
     {/* View Button */}
-    <Link href={`/browse/${booking._id}`}>
+    <Link href={`/browse/${booking.hotelId}`}>
       <button className="rounded-lg bg-emerald-600 p-2 text-white transition hover:bg-emerald-700 cursor-pointer">
         <Eye size={18} />
       </button>

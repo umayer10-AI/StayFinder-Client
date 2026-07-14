@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { hotelEdit } from "@/lib/api/action";
 import { redirect } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
+import toast from "react-hot-toast";
 
 const hotelTypes = [
   "Hotel",
@@ -49,7 +50,15 @@ const AdminHotelEdit = ({ hotel }: any) => {
     const finalData = await hotelEdit(updateData, hotel._id, t)
 
     if(finalData.modifiedCount > 0){
-        alert("Update Data")
+        toast.success('Update Data',
+            {
+                style: {
+                borderRadius: '10px',
+                background: '#333',
+                color: '#fff',
+                },
+            }
+        );
         redirect('/dashboard/admin/hotels')
     }
 

@@ -5,6 +5,7 @@ import { Trash2, X, AlertCircle } from "lucide-react";
 import { hotelDeleteBtn } from "@/lib/api/action";
 import { redirect } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
+import toast from "react-hot-toast";
 
 export default function AdminHotelDelete({hotel}: any) {
   const [open, setOpen] = useState(false);
@@ -17,7 +18,15 @@ export default function AdminHotelDelete({hotel}: any) {
 
     const data = await hotelDeleteBtn(hotel._id, t)
     if(data.deletedCount > 0){
-        alert('Hotel Deleted')
+        toast.error('Hotel Deleted',
+            {
+                style: {
+                borderRadius: '10px',
+                background: '#333',
+                color: '#fff',
+                },
+            }
+        );
         redirect('/dashboard/admin/hotels')
     }
     setOpen(false);

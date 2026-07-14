@@ -17,7 +17,7 @@ const UserBooking = ({bookings}: any) => {
 
     const data = await bookingDeleteBtn(id, t)
     if(data.deletedCount > 0){
-        toast('Deleted',
+        toast.error('Deleted',
             {
                 style: {
                 borderRadius: '10px',
