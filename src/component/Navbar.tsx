@@ -27,6 +27,7 @@ export default function Navbar() {
 
   const { data: session } = authClient.useSession()
   const user = session?.user
+  const userAny = user as any
   console.log(user)
 
 
@@ -46,7 +47,7 @@ export default function Navbar() {
     { name: "Browse", href: "/browse", icon: Building2 },
     { name: "About", href: "/about", icon: Hotel },
     { name: "Chart", href: "/chart", icon: ChartLine },
-    { name: "Dashboard", href: `/dashboard/${user?.role}`, icon: LayoutDashboard },
+    { name: "Dashboard", href: `/dashboard/${userAny?.role}`, icon: LayoutDashboard },
   ];
 
   const routes = user ? userRoutes : guestRoutes;
@@ -102,13 +103,13 @@ export default function Navbar() {
                   onClick={() => setProfileOpen(!profileOpen)}
                   className="flex items-center gap-2 text-md rounded-lg bg-slate-900 px-3 py-2 text-white hover:bg-slate-800"
                 >
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 font-semibold">{user?.name.charAt(0) || 'U'}</div>
-                  <span>{user?.name.split(' ')[0]}</span>
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 font-semibold">{userAny?.name?.charAt(0) || 'U'}</div>
+                  <span>{userAny?.name?.split(' ')[0]}</span>
                   <ChevronDown className="h-4 w-4" />
                 </button>
                 {profileOpen && (
                   <div className="absolute right-0 mt-3 w-56 rounded-xl border border-slate-800 bg-slate-900 p-2 shadow-xl">
-                    <Link href={`/dashboard/${user?.role}/profile`} className="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-800">
+                    <Link href={`/dashboard/${userAny?.role}/profile`} className="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-800">
                       <User className="h-4 w-4" /> Profile
                     </Link>
                     <Link href="/settings" className="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-800">

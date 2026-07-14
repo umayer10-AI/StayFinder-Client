@@ -6,15 +6,15 @@ import { serverSession } from '@/lib/sessoin';
 
 export async function POST() {
   try {
-    const headersList = await headers()
-    const origin = headersList.get('origin')
+    const headersList = await headers();
+    const origin = headersList.get("origin");
 
-    const user = await serverSession()
+    const user = await serverSession();
 
-    const PRICE_ID = 'price_1TsEarB4qYm1kQq00GqC4KUD'
+    const PRICE_ID = "price_1TsEarB4qYm1kQq00GqC4KUD";
 
     const session = await stripe.checkout.sessions.create({
-        customer_email: user?.email,
+      customer_email: user?.email ?? undefined,
       line_items: [
         {
           price: PRICE_ID,
@@ -23,17 +23,18 @@ export async function POST() {
       ],
       metadata: {
         priceId: PRICE_ID,
-        userId: user?.id,
-        userEmail: user?.email,
+        userId: user?.id ?? null,
+        userEmail: user?.email ?? null,
       },
-      mode: 'subscription',
+      mode: "subscription",
       success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
     });
-    return NextResponse.redirect(session.url, 303)
+    return NextResponse.redirect(session.url as string, 303);
   } catch (err) {
+    const e: any = err;
     return NextResponse.json(
-      { error: err.message },
-      { status: err.statusCode || 500 }
-    )
+      { error: e?.message ?? String(e) },
+      { status: (e?.statusCode as number) || 500 }
+    );
   }
 }

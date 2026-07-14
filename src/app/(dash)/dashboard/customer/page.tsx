@@ -28,7 +28,7 @@ export default function Page() {
     );
   }
 
-  const isPro = user?.plan;
+  const isPro = (user as any)?.plan;
 
   const stats = [
     {

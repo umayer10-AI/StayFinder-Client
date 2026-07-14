@@ -3,7 +3,7 @@
 import React from "react";
 
 
-const CustomerTransiction = ({transactions}) => {
+const CustomerTransiction = ({transactions}: any) => {
   return (
     <div className="min-h-screen bg-zinc-950 p-6">
       <div className="mx-auto max-w-7xl rounded-2xl border border-zinc-800 bg-zinc-900 shadow-xl">
@@ -37,7 +37,7 @@ const CustomerTransiction = ({transactions}) => {
             </thead>
 
             <tbody>
-              {transactions.map((transaction, index) => (
+              {transactions.map((transaction: any, index: number) => (
                 <tr
                   key={transaction.session_id}
                   className="border-b border-zinc-800 hover:bg-zinc-800/50"

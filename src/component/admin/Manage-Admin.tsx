@@ -9,7 +9,7 @@ import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 
 
-const ManageBooking = ({bookings}) => {
+const ManageBooking = ({bookings}: any) => {
   const handleDelete = async (id: string) => {
 
     const token = await authClient.token()
@@ -56,7 +56,7 @@ const ManageBooking = ({bookings}) => {
             </thead>
 
             <tbody>
-              {bookings.map((booking, index) => (
+              {bookings.map((booking: any, index: number) => (
                 <tr
                   key={booking._id}
                   className="border-b border-zinc-800 hover:bg-zinc-800/50"

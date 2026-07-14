@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 
-export default function AdminDashboard({users,countHotels,allBookings,transactions,planPro,blockList}) {
+export default function AdminDashboard({users,countHotels,allBookings,transactions,planPro,blockList}: any) {
 
     const stats = [
       {

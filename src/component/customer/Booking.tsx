@@ -5,7 +5,7 @@ import { Pencil, Trash2 } from "lucide-react";
 import HotelEdit from "./HotelEdit";
 import HotelDelete from "./HotelDelete";
 
-const BookingPage = ({ hotel }) => {
+const BookingPage = ({ hotel }: any) => {
   return (
     <tr
       key={hotel._id}

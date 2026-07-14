@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
 
 
-const UserBooking = ({bookings}) => {
+const UserBooking = ({bookings}: any) => {
 
   const handleDelete = async (id: string) => {
 
@@ -56,7 +56,7 @@ const UserBooking = ({bookings}) => {
             </thead>
 
             <tbody>
-              {bookings.map((booking, index) => (
+              {bookings.map((booking: any, index: number) => (
                 <tr
                   key={booking._id}
                   className="border-b border-zinc-800 hover:bg-zinc-800/50"

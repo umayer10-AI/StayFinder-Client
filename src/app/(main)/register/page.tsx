@@ -39,14 +39,11 @@ export default function RegisterPage() {
     console.log(v);
 
     const { data, error } = await authClient.signUp.email({
-        name: v.name,
-        email: v.email,
-        password: v.password,
-        image: v.image,
-        isBlock: v.isBlock,
-        role: v.role,
-        plan: v.plan,
-        callbackURL: "/",
+      name: v.name,
+      email: v.email,
+      password: v.password,
+      image: v.image,
+      callbackURL: "/",
     });
 
     if(data){
@@ -213,37 +210,19 @@ export default function RegisterPage() {
             )}
           </div>     
 
-            {/* {Role} */}
-          <div>
-  <label className="mb-2 block text-sm text-slate-300">
-    Account Type
-  </label>
 
-  <select
-    {...register("role")}
-    className="w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-2 text-white outline-none focus:border-orange-500"
-  >
-    <option value="customer" className="bg-slate-800">
-      Customer
-    </option>
-
-    <option value="admin" className="bg-slate-800">
-      Admin
-    </option>
-  </select>
-</div>  
 
           {/* Register Button */}
           <button
             type="submit"
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-orange-600 to-orange-400 py-2 font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:from-orange-500 hover:to-orange-300"
+            className="flex mt-5 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-orange-600 to-orange-400 py-2 font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:from-orange-500 hover:to-orange-300"
           >
             Create Account
             <FaArrowRight />
           </button>
 
           {/* Divider */}
-          <div className="relative">
+          <div className="relative py-2">
             <div className="border-t border-slate-700"></div>
 
             <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-900 px-4 text-sm text-slate-400">

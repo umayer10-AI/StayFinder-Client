@@ -4,16 +4,21 @@ export const postPatch = async (
   path: string,
   v: unknown,
   methodData: string = "POST",
-  t: unknown
+  t?: unknown
 ) => {
+
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+    cache: 'no-store'
+  };
+
+  if (t) {
+    headers.authorization = `Bearer ${t}`;
+  }
 
   const res = await fetch(`${BaseUrl}${path}`, {
     method: methodData,
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${t}`,
-      cache: 'no-store'
-    },
+    headers,
     body: JSON.stringify(v),
   });
 

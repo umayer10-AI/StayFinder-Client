@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
-const ManageUsers = ({ users }) => {
+const ManageUsers = ({ users }: any) => {
   const router = useRouter();
 
   const handleToggleBlock = async (id: string) => {
@@ -67,7 +67,7 @@ const ManageUsers = ({ users }) => {
             </thead>
 
             <tbody>
-              {users?.map((user, index) => (
+              {users?.map((user: any, index: number) => (
                 <tr
                   key={user._id}
                   className="border-b border-zinc-800 transition hover:bg-zinc-800/40"

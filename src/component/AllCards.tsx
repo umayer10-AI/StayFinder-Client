@@ -2,6 +2,17 @@ import Card from "./Card";
 import HotelSearch from "./HotelSearch";
 import Pagination from "./Pagination";
 
+interface Hotel {
+  _id: string;
+  title: string;
+  type?: string;
+  description?: string;
+  location?: string;
+  contact?: string;
+  price?: string | number;
+  image?: string;
+}
+
 interface AllCardsProps {
   hotels: Hotel[];
   totalPages: number;

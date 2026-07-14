@@ -6,7 +6,7 @@ import { Eye } from "lucide-react";
 import AdminHotelEdit from "./AdminHotelEdit";
 import AdminHotelDelete from "./AdminHotelDelete";
 
-const AdminHotel = ({ hotel }) => {
+const AdminHotel = ({ hotel }: any) => {
   return (
     <tr className="border-b border-slate-800 transition hover:bg-slate-800/40">
       <td className="px-6 py-2">

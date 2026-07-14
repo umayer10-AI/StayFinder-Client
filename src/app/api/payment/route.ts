@@ -4,19 +4,19 @@ import { stripe } from '@/lib/stripe';
 import { serverSession } from '@/lib/sessoin';
 
 
-export async function POST(request) {
+export async function POST(request: Request) {
   try {
-    const headersList = await headers()
-    const origin = headersList.get('origin')
+    const headersList = await headers();
+    const origin = headersList.get("origin");
 
-    const user = await serverSession()
-    console.log({user})
+    const user = await serverSession();
+    console.log({ user });
 
-    const formData = await request.formData()
-    const hotelName = formData.get('hotelName')
-    const userId = formData.get('userId')
-    const price = Number(4000.99)
-    const hotelId = formData.get('hotelId')
+    const formData = await request.formData();
+    const hotelName = String(formData.get("hotelName") ?? "");
+    const userId = String(formData.get("userId") ?? "");
+    const price = Number(4000.99);
+    const hotelId = String(formData.get("hotelId") ?? "");
 
     // const PRICE_ID = 'price_1TsHTvB4qYm1kQq07lCondDf'
 
@@ -36,19 +36,20 @@ export async function POST(request) {
       ],
       metadata: {
         price: Number(price),
-        userId: user?.id,
-        userEmail: user?.email,
+        userId: user?.id ?? null,
+        userEmail: user?.email ?? null,
         hotelName,
         hotelId,
       },
       mode: 'payment',
       success_url: `${origin}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
     });
-    return NextResponse.redirect(session.url, 303)
+    return NextResponse.redirect(session.url as string, 303);
   } catch (err) {
+    const e: any = err;
     return NextResponse.json(
-      { error: err.message },
-      { status: err.statusCode || 500 }
-    )
+      { error: e?.message ?? String(e) },
+      { status: (e?.statusCode as number) || 500 }
+    );
   }
 }

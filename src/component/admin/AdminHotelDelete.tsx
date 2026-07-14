@@ -6,7 +6,7 @@ import { hotelDeleteBtn } from "@/lib/api/action";
 import { redirect } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 
-export default function AdminHotelDelete({hotel}) {
+export default function AdminHotelDelete({hotel}: any) {
   const [open, setOpen] = useState(false);
 //   console.log(hotel)
 

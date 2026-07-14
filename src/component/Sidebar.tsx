@@ -94,10 +94,10 @@ export default function Sidebar() {
 
   const { data } = authClient.useSession();
   const user = data?.user;
+  const userAny = user as any;
   console.log(user)
 
-  const links =
-    user?.role === "admin" ? adminLinks : customerLinks;
+  const links = userAny?.role === "admin" ? adminLinks : customerLinks;
 
   return (
     <aside className="flex h-screen w-75 flex-col border-r border-slate-800 bg-slate-950">
@@ -116,19 +116,19 @@ export default function Sidebar() {
           />
 
           {
-            user?.role === 'admin'? 
+            userAny?.role === 'admin'? 
             <h2 className="text-2xl font-bold bg-linear-to-r from-orange-600 to-orange-400 text-transparent bg-clip-text w-fit">Admin Panel</h2>
             : <div className="text-center">
             <h2 className="font-semibold text-white">
-              {user?.name}
+              {userAny?.name}
             </h2>
 
             <p className="text-sm text-slate-400">
-              {user?.email}
+              {userAny?.email}
             </p>
 
             <span className="mt-1 inline-block rounded-full bg-orange-500/10 px-3 py-1 text-xs font-medium capitalize text-orange-400">
-              {user?.role}
+              {userAny?.role}
             </span>
           </div>
           }
