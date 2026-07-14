@@ -112,6 +112,7 @@ export default function Sidebar() {
             alt="user"
             width={60}
             height={60}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="rounded-full h-20 w-20 border-2 border-orange-500 object-cover"
           />
 
