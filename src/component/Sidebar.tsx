@@ -100,7 +100,7 @@ export default function Sidebar() {
   const links = userAny?.role === "admin" ? adminLinks : customerLinks;
 
   return (
-    <aside className="flex h-screen w-75 flex-col border-r border-slate-800 bg-slate-950">
+    <aside className="flex h-screen sticky top-0 left-0 w-75 flex-col border-r border-slate-800 bg-slate-950">
       {/* User */}
       <div className="border-b border-slate-800 p-6">
         <div className="flex flex-col items-center gap-4">

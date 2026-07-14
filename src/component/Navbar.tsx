@@ -112,8 +112,8 @@ export default function Navbar() {
                     <Link href={`/dashboard/${userAny?.role}/profile`} className="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-800">
                       <User className="h-4 w-4" /> Profile
                     </Link>
-                    <Link href="/settings" className="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-800">
-                      <Settings className="h-4 w-4" /> Settings
+                    <Link href={`/dashboard/${userAny?.role}`} className="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-300 hover:bg-slate-800">
+                      <LayoutDashboard className="h-4 w-4" /> Dashboard
                     </Link>
                     <hr className="my-2 border-slate-700" />
                     <button onClick={a} className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-red-400 hover:bg-red-500/10">
